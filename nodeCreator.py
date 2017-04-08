@@ -3,6 +3,7 @@ import itertools
 from py2neo import *
 
 graph = Graph()
+graph.schema.create_uniqueness_constraint('Product', 'id')
 
 with open('amazon0302.txt') as f:
     for line in itertools.islice(f, 4, None):  # start=5, stop=None
@@ -20,7 +21,8 @@ with open('amazon0302.txt') as f:
     		second = Node("Product", id=second_ID)
 
     		#graph
-    		graph.create(first|second)
+    		graph.merge(first)
+    		graph.merge(second)
 
     		#create a relationship
     		graph.merge(Relationship(first, "WITH", second))
