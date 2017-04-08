@@ -3,7 +3,7 @@ import itertools
 from py2neo import *
 
 graph = Graph()
-graph.schema.create_uniqueness_constraint('Product', 'id')
+# graph.schema.create_uniqueness_constraint('Product', 'id')
 
 with open('amazon0302.txt') as f:
     for line in itertools.islice(f, 4, None):  # start=5, stop=None
