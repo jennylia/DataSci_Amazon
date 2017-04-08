@@ -23,7 +23,7 @@ with open('amazon0302.txt') as f:
     		graph.create(first|second)
 
     		#create a relationship
-    		graph.create(Relationship(first, "WITH", second))
+    		graph.merge(Relationship(first, "WITH", second))
 
 
 
